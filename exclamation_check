@@ -1,4 +1,6 @@
-
+# this definition SHOULD take a user input in and check to see if it has exclamations
+# and then return the user input to the program WITHOUT the exclamations. 
+# for some reason it isn't working properly, hence all the prints. 
 
 def exclamation_check(user_str):
   print "in the body of the definition."
