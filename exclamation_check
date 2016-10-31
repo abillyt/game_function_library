@@ -22,4 +22,3 @@ def exclamation_check(user_str):
 	else:
     print "there were no triggers in the text" 
 		return user_str
- 
