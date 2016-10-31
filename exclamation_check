@@ -2,6 +2,9 @@
 # and then return the user input to the program WITHOUT the exclamations. 
 # for some reason it isn't working properly, hence all the prints. 
 
+# also, here on github I'm not able to save it at a 2 space indent, as it just reverts 
+# to an 8 space indent, which makes the code look all funky. Don't know why it won't save. 
+
 def exclamation_check(user_str):
   print "in the body of the definition."
 	if user_str[-3:] == "!!!":
