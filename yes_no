@@ -1,0 +1,169 @@
+# this function takes a user input and determines whether or not it is a yes or no
+# it will interact with the user until a Yes or No answer is given. 
+
+yes_list = ["yep", "yeppers", "yeah", "uh huh", "well, sure", "absolutely", "amen", "affirmative",
+		"true", "yea", "decent", "beyond a doubt", "certainly", "good enough", "naturally", "of course",
+		"undoubtedly", "unquestionably", "definitely", "you bet", "you betcha", "hell yea I am",
+		"heck ya", "heck yah", "hell ya", "hell yeah", "hell yah", "without a doubt"]
+
+no_list = ["nope", "no way", "negative", "absolutely not", "not at all", "not by any means", "never",
+		"by no means", "nix", "not"] 
+
+maybe_list = ["perchance", "perhaps", "mayhaps", "can be", "feasible", "imaginably", "I might be", 
+		"I could be", "possibly", "god willing", "God willing"]
+
+
+
+def yes_no(str):
+
+	skill_level = raw_input("Answer Y/N\n-->")
+	skill_level = skill_level.lower()
+	print "\n\n"
+	
+	exclamation_check(skill_level)  #this function is not yet working properly
+
+	for maybe in maybe_list:
+		if maybe == skill_level:
+			print "I think you better decide definitively."
+			skill_level = raw_input("Answer Y/N\n-->")
+			skill_level = skill_level.lower()
+			print "\n\n"
+
+	for yes in yes_list:
+		if yes.lower() == skill_level:
+			print "Look at your critical thinking with that word!"
+			return "y"
+
+	for no in no_list:
+		if no.lower() == skill_level:
+			print "Good lord. Such humility!"
+			return "n"
+
+	if len(skill_level) == 0:
+		print "How about not leaving the field blank and answering yes or no?"
+		skill_level = raw_input("Please answer Y/N\n-->")
+		skill_level = skill_level.lower()
+
+	if len(skill_level) > 1:
+		if skill_level == "i am" or skill_level == "i am!":
+			print "Wow, I love your enthusiasm!"
+			return "y"
+		
+		if skill_level != "yes" and skill_level != "no": 
+			print "That's not a valid input, though I'm certain it was clever."
+		
+		elif skill_level == "yes" or skill_level == "no":
+			print "Okay, you're a rebel, typin' out the whole word. Expansion is nice. I get it."
+			if skill_level == "yes":
+				return "y"
+			elif skill_level == "no":
+				return "n"
+		
+		while skill_level != "y" or skill_level != "n":
+			
+			skill_level = raw_input("Please answer Y/N\n-->")
+			skill_level = skill_level.lower()
+
+			print "\n\n"
+			
+			exclamation_check(skill_level) #this function is not yet working properly
+			
+			for maybe in maybe_list:
+				if maybe == skill_level:
+					print "I think you better decide definitively."
+					skill_level = raw_input("Answer Y/N\n-->")
+					skill_level = skill_level.lower()
+					print "\n\n"
+
+			if skill_level == "i am" or skill_level == "i am!":
+				print "Wow, I love your enthusiasm!"
+				return "y"
+
+			for yes in yes_list:
+				if yes.lower() == skill_level:
+					print "Look at your critical thinking with that word!"
+					return "y"
+
+			for no in no_list:
+				if no.lower() == skill_level:
+					print "Good lord. Such humility!"
+					return "n"
+
+			if len(skill_level) == 0:
+				print "Is that how you answer a question? How about using some intention?"
+			
+			if skill_level.lower() == "y" or skill_level.lower() == "n":
+				return skill_level
+			
+			elif skill_level.lower() != "yes" and skill_level.lower() != "no": 
+				print "That's not a valid input, you know."
+			
+			elif skill_level.lower() == "yes" or skill_level.lower() == "no":
+				print "Yes, well, that's very clear. Okay. I get it.\n"
+				if skill_level.lower() == "yes":
+					return "y"
+				elif skill_level.lower() == "no":
+					return "n"
+
+			else:
+				print """That is not a valid option!
+				Look at what you're typing! 
+				I need a Y or a N or a YES or a yes or a NO or a no."""
+
+	while skill_level != "y" and skill_level != "n":
+		print """
+	Look, I get that you're being experimental. 		
+	If you'd like to continue, please
+	answer with 'y' or 'n'."""
+		skill_level = raw_input("So, what'll it be? y/n\n-->")
+		skill_level = skill_level.lower()
+
+		print "\n\n"
+		
+		exclamation_check(skill_level)  #this function is not yet working properly
+			
+		for maybe in maybe_list:
+			if maybe == skill_level:
+				print "Yes or no, please."
+				skill_level = raw_input("Answer Y/N\n-->")
+				skill_level = skill_level.lower()
+				print "\n\n"
+
+		if skill_level == "i am" or skill_level == "i am!":
+			print "Well, at least you're on top of your game now!"
+			return "y"
+
+		for yes in yes_list:
+			if yes == skill_level:
+				print "Great, let's get on with it!"
+				return "y"
+
+		for no in no_list:
+			if no == skill_level:
+				print "At least now it's out in the open!"
+				return "n"
+
+		if len(skill_level) == 0:
+			print "really? Come on. Yes or no."
+			
+		if skill_level == "y" or skill_level == "n":
+			return skill_level
+			
+		elif skill_level != "yes" and skill_level != "no": 
+			print "Okay, is it newbie hour? Please tell me yes or no."
+			
+		elif skill_level == "yes" or skill_level == "no":
+			print "We got there, which is super cool."
+			if skill_level == "yes":
+				return "y"
+			elif skill_level == "no":
+				return "n"
+
+		else:
+			print """That is not a valid option!
+			Look at what you're typing! 
+			I need a Y or a N or a YES or a yes or a NO or a no."""
+
+	return skill_level
+
+
