@@ -23,8 +23,8 @@ def yes_no(str):
 	for maybe in maybe_list:
 		if maybe == answer:
 			print "I think you better decide definitively."
-			skill_level = raw_input("Answer Y/N\n-->")
-			skill_level = skill_level.lower()
+			answer = raw_input("Answer Y/N\n-->")
+			answer = answer.lower()
 			print "\n\n"
 
 	for yes in yes_list:
