@@ -3,163 +3,41 @@
 
 yes_list = ["yep", "yeppers", "yeah", "uh huh", "well, sure", "absolutely", "amen", "affirmative",
 		"true", "yea", "decent", "beyond a doubt", "certainly", "good enough", "naturally", "of course",
-		"undoubtedly", "unquestionably", "definitely", "you bet", "you betcha", "hell yea I am",
-		"heck ya", "heck yah", "hell ya", "hell yeah", "hell yah", "without a doubt"]
+		"undoubtedly", "unquestionably", "definitely", "you bet", "you betcha", "hell yea i am",
+		"heck ya", "heck yah", "hell ya", "hell yeah", "hell yah", "without a doubt", "i am",
+		"i am!", "yes", "y"]
 
 no_list = ["nope", "no way", "negative", "absolutely not", "not at all", "not by any means", "never",
-		"by no means", "nix", "not"] 
+		"by no means", "nix", "not", "no", "n"] 
 
-maybe_list = ["perchance", "perhaps", "mayhaps", "can be", "feasible", "imaginably", "I might be", 
-		"I could be", "possibly", "god willing", "God willing"]
+maybe_list = ["perchance", "perhaps", "mayhaps", "can be", "feasible", "imaginably", "i might be", 
+		"i could be", "possibly", "god willing", "god willing"]
 
+prompt = "-> "
 
+def yes_no(question):
 
-def yes_no(str):
-
-	answer = raw_input("Answer Y/N\n-->")
+	answer = raw_input(prompt)
 	answer = answer.lower()
 	print "\n\n"
 
-	for maybe in maybe_list:
-		if maybe == answer:
-			print "I think you better decide definitively."
-			answer = raw_input("Answer Y/N\n-->")
-			answer = answer.lower()
-			print "\n\n"
-
-	for yes in yes_list:
-		if yes.lower() == answer:
-			print "Look at your critical thinking with that word!"
-			return "y"
-
-	for no in no_list:
-		if no.lower() == answer:
-			print "Good lord. Such humility!"
-			return "n"
-
-	if len(answer) == 0:
-		print "How about not leaving the field blank and answering yes or no?"
-		answer = raw_input("Please answer Y/N\n-->")
+	while len(answer) == 0:
+		print "How about not leaving the field blank and answering yes or no?\n"
+		answer = raw_input(prompt)
 		answer = answer.lower()
-
-	if len(answer) > 1:
-		if answer == "i am" or answer == "i am!":
-			print "Wow, I love your enthusiasm!"
-			return "y"
-		
-		if answer != "yes" and answer != "no": 
-			print "That's not a valid input, though I'm certain it was clever."
-		
-		elif answer == "yes" or answer == "no":
-			print "Okay, you're a rebel, typin' out the whole word. Expansion is nice. I get it."
-			if answer == "yes":
-				return "y"
-			elif answer == "no":
-				return "n"
-		
-		while answer != "y" or answer != "n":
-			
-			answer = raw_input("Please answer Y/N\n-->")
-			answer = answer.lower()
-
-			print "\n\n"
-			
-			for maybe in maybe_list:
-				if maybe == answer:
-					print "I think you better decide definitively."
-					answer = raw_input("Answer Y/N\n-->")
-					answer = answer.lower()
-					print "\n\n"
-
-			if answer == "i am" or answer == "i am!":
-				print "Wow, I love your enthusiasm!"
-				return "y"
-
-			for yes in yes_list:
-				if yes.lower() == answer:
-					print "Look at your critical thinking with that word!"
-					return "y"
-
-			for no in no_list:
-				if no.lower() == answer:
-					print "Good lord. Such humility!"
-					return "n"
-
-			if len(answer) == 0:
-				print "Is that how you answer a question? How about using some intention?"
-			
-			if answer.lower() == "y" or answer.lower() == "n":
-				return answer
-			
-			elif answer.lower() != "yes" and answer.lower() != "no": 
-				print "That's not a valid input, you know."
-			
-			elif answer.lower() == "yes" or answer.lower() == "no":
-				print "Yes, well, that's very clear. Okay. I get it.\n"
-				if answer.lower() == "yes":
-					return "y"
-				elif answer.lower() == "no":
-					return "n"
-
-			else:
-				print """That is not a valid option!
-				Look at what you're typing! 
-				I need a Y or a N or a YES or a yes or a NO or a no."""
-
-	while answer != "y" and answer != "n":
-		print """
-	Look, I get that you're being experimental. 		
-	If you'd like to continue, please
-	answer with 'y' or 'n'."""
-		answer = raw_input("So, what'll it be? y/n\n-->")
-		answer = answer.lower()
-
 		print "\n\n"
-			
-		for maybe in maybe_list:
-			if maybe == answer:
-				print "Yes or no, please."
-				answer = raw_input("Answer Y/N\n-->")
-				answer = answer.lower()
-				print "\n\n"
+		
+	while answer in maybe_list:
+		print "I think you better decide definitively."
+		answer = raw_input(prompt)
+		answer = answer.lower()
+		print "\n\n"
 
-		if answer == "i am" or answer == "i am!":
-			print "Well, at least you're on top of your game now!"
-			return "y"
+	if answer in yes_list:			
+		return "y"
 
-		for yes in yes_list:
-			if yes == answer:
-				print "Great, let's get on with it!"
-				return "y"
+	elif answer in no_list:		
+		return "n"
 
-		for no in no_list:
-			if no == answer:
-				print "At least now it's out in the open!"
-				return "n"
-
-		if len(answer) == 0:
-			print "really? Come on. Yes or no."
-			
-		if answer == "y" or answer == "n":
-			return answer
-			
-		elif answer != "yes" and answer != "no": 
-			print "Okay, is it newbie hour? Please tell me yes or no."
-			
-		elif answer == "yes" or answer == "no":
-			print "We got there, which is super cool."
-			if answer == "yes":
-				return "y"
-			elif answer == "no":
-				return "n"
-
-		else:
-			print """That is not a valid option!
-			Look at what you're typing! 
-			I need a Y or a N or a YES or a yes or a NO or a no."""
-
-	return answer
-	
-
-
-
+	else: 
+		yes_no(question)
