@@ -23,3 +23,10 @@ def exclamation_check(user_str):
 	else:
     		print "there were no triggers in the text" 
 		return user_str
+	
+
+exclamation_check("Wait a minute!!")
+exclamation_check("No!")
+exclamation_check("That is fine.")
+exclamation_check("This is the first time!!!!")
+exclamation_check("Well, I will be!!!")
