@@ -1,43 +1,45 @@
 # this function takes a user input and determines whether or not it is a yes or no
 # it will interact with the user until a Yes or No answer is given. 
+# updated to Python 3.7x
 
 yes_list = ["yep", "yeppers", "yeah", "uh huh", "well, sure", "absolutely", "amen", "affirmative",
-		"true", "yea", "decent", "beyond a doubt", "certainly", "good enough", "naturally", "of course",
-		"undoubtedly", "unquestionably", "definitely", "you bet", "you betcha", "hell yea i am",
-		"heck ya", "heck yah", "hell ya", "hell yeah", "hell yah", "without a doubt", "i am",
-		"i am!", "yes", "y"]
+	    "true", "yea", "decent", "beyond a doubt", "certainly", "good enough", "naturally", "of course",
+	    "undoubtedly", "unquestionably", "definitely", "you bet", "you betcha", "hell yea i am",
+	    "heck ya", "heck yah", "hell ya", "hell yeah", "hell yah", "without a doubt", "i am",
+	    "i am!", "yes", "y", "ye", "yeh"]
 
 no_list = ["nope", "no way", "negative", "absolutely not", "not at all", "not by any means", "never",
-		"by no means", "nix", "not", "no", "n"] 
+		"by no means", "nix", "not", "no", "n", "nah"] 
 
-maybe_list = ["perchance", "perhaps", "mayhaps", "can be", "feasible", "imaginably", "i might be", 
-		"i could be", "possibly", "god willing", "god willing"]
+maybe_list = ["perchance", "perhaps", "mayhaps", "can be", "feasibly", "imaginably", "i might be", 
+		"i could be", "possibly", "god willing", "god willing", "could be"]
 
 prompt = "-> "
 
 def yes_no(question):
 
-	answer = raw_input(prompt)
+	answer = str(input(prompt))
 	answer = answer.lower()
-	print "\n\n"
+	print("\n\n")
 
 	while len(answer) == 0:
-		print "How about not leaving the field blank and answering yes or no?\n"
-		answer = raw_input(prompt)
-		answer = answer.lower()
-		print "\n\n"
+            print("How about not leaving the field blank and answering yes or no?\n")
+	    answer = str(input(prompt))
+	    answer = answer.lower()
+	    print("\n\n")
 		
 	while answer in maybe_list:
-		print "I think you better decide definitively."
-		answer = raw_input(prompt)
-		answer = answer.lower()
-		print "\n\n"
+	    print("I think you better decide definitively.\n")
+	    answer = str(input(prompt))
+	    answer = answer.lower()
+	    print("\n\n")
 
 	if answer in yes_list:			
-		return "y"
+	    return "y"
 
 	elif answer in no_list:		
-		return "n"
+	    return "n"
 
 	else: 
-		yes_no(question)
+	    yes_no(question)
+
