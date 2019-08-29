@@ -1,6 +1,6 @@
 # this function takes a user input and determines whether or not it is a yes or no
 # it will interact with the user until a Yes or No answer is given. 
-# updated to Python 3.7x
+# updated to Python 3.7x 28aug2019
 
 yes_list = ["yep", "yeppers", "yeah", "uh huh", "well, sure", "absolutely", "amen", "affirmative",
 	    "true", "yea", "decent", "beyond a doubt", "certainly", "good enough", "naturally", "of course",
